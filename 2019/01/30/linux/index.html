@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Notebook">
 <meta property="og:description" content="unix高级编程 笔记第一章对unix基本概念和术语的介绍  代码部分还需多加实践 标准输入，标准输出和标准错误 重定向 强调代码中出错处理 系统调用和库函数的区别系统调用：系统（unix）提供的调用内核的接口库函数：编程语言/编译器中，使用系统调用的函数 习题中关于perror和strerror（对于c语言的不熟悉） 第二章unix标准和实现  标准：unix编程标准 接口规范实现：具体的函数接">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-30T15:37:32.199Z">
+<meta property="og:updated_time" content="2019-01-31T07:50:15.184Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Unix">
 <meta name="twitter:description" content="unix高级编程 笔记第一章对unix基本概念和术语的介绍  代码部分还需多加实践 标准输入，标准输出和标准错误 重定向 强调代码中出错处理 系统调用和库函数的区别系统调用：系统（unix）提供的调用内核的接口库函数：编程语言/编译器中，使用系统调用的函数 习题中关于perror和strerror（对于c语言的不熟悉） 第二章unix标准和实现  标准：unix编程标准 接口规范实现：具体的函数接">
@@ -98,18 +98,33 @@
 <p>标准：unix编程标准 接口规范<br>实现：具体的函数接口</p>
 <p>有很多的不同的unix系统，但是unix编程需要统一的标准和实现 可移植性</p>
 <p><strong>awk命令</strong></p>
-<p>编译时限制<br>运行时限制<br>（数，极限数，边界数）</p>
+<p>编译时限制<br>运行时限制<br>（数，极限数，边界数）<br><a href="http://www.cppblog.com/Onway/archive/2012/03/26/169063.html" target="_blank" rel="noopener">http://www.cppblog.com/Onway/archive/2012/03/26/169063.html</a></p>
 <p>选项<br>是否支持某项功能</p>
 <p>功能测试宏<br>定义头文件版本</p>
 <h3 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h3><p>文件io函数</p>
 <hr>
 <p>文件描述符</p>
 <p>int openat(int dirfd, const char *pathname, int flags, mode_t mode);<br>函数openat的第一个参数是目录的文件描述符</p>
+<p>文件偏移量</p>
+<p>有空洞的文件（类似于bug吗）<br>文件空洞不占用任何磁盘空间<br><a href="https://blog.csdn.net/clamercoder/article/details/38361815" target="_blank" rel="noopener">https://blog.csdn.net/clamercoder/article/details/38361815</a></p>
+<p>预读<br>数据结构：B及<em>B+树</em>（普遍运用在<strong>数据库</strong>和<strong>文件系统</strong>。）<br>（vs 红黑树 ）</p>
+<p>B树，B+树，红黑树的比较<br><a href="https://blog.csdn.net/qq_36183935/article/details/81095212" target="_blank" rel="noopener">https://blog.csdn.net/qq_36183935/article/details/81095212</a></p>
+<p>进程表-文件表-v节点</p>
+<p>避免文件操作冲突：原子操作</p>
+<p>buffered and unbuffered</p>
+<p>ext4文件系统（关于文件系统）</p>
+<h3 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h3><p>文件属性</p>
+<hr>
+<p>文件类型：普通文件，目录文件，块特殊文件，字符特殊文件，FIFO，套接字（socket），符号链接</p>
+<p>lstat和stat函数 检测符号链接</p>
+<p>访问权限<br>删除/创建：对所在目录有写和执行权限</p>
+<p>执行权限S <strong>强制位</strong><br><strong>设置使文件在执行阶段具有文件所有者的权限，相当于临时拥有文件所有者的身份</strong></p>
+<p>黏着位<br>使一个目录既能够让任何用户写入文档，又不让用户删除这个目录下他人的文档，t权限就是能起到这个作用。t权限一般只用在目录上，用在文档上起不到什么作用。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://DoloresHe.github.io/2019/01/30/linux/" data-id="cjrjcy31x0001e4tkif9z7xpw" class="article-share-link">Share</a>
+      <a data-url="http://DoloresHe.github.io/2019/01/30/linux/" data-id="cjrkbxlvo0002nctki5wqa9jk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -117,6 +132,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2019/01/31/unix_shell/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Unix shell 命令
+        
+      </div>
+    </a>
   
   
     <a href="/2018/12/21/git/" id="article-nav-older" class="article-nav-link-wrap">
@@ -156,6 +180,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/01/31/unix_shell/">Unix shell 命令</a>
+          </li>
         
           <li>
             <a href="/2019/01/30/linux/">Unix</a>

@@ -62,6 +62,58 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-unix_shell" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/31/unix_shell/" class="article-date">
+  <time datetime="2019-01-31T07:51:26.813Z" itemprop="datePublished">2019-01-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/31/unix_shell/">Unix shell 命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h3><p>列出目录下所有文件<br><code>$ ls</code><br>-l 获取文件的所有信息</p>
+<p>查看联机手册<br><code>$ man l ls</code></p>
+<p>编译c语言源文件<br><code>$ cc myls.c</code></p>
+<p>获取时间<br><code>$ date</code></p>
+<p>目前有那些用户登入系统<br><code>$ who</code></p>
+<p>当前所处的目录（print working directory）<br><code>$ pwd</code></p>
+<p>测量一个_命令_的运行时间<br><code>$ time</code></p>
+<p>文件结束符<br><code>$ ^D</code></p>
+<h3 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h3><p><strong>格式化文本信息</strong><br><code>$ awk</code></p>
+<h3 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h3><p>用于连接文件并打印到标准输出设备上。<br><code>$ cat</code></p>
+<p>观察实质内容<br><code>$ od</code></p>
+<p>查看文件所占磁盘块大小命令<br><code>$ du</code></p>
+<h3 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h3><p>查看屏蔽字，指定当前用户在新建文件和目录时的默认权限<br><code>$ umask</code></p>
+<p>变更文件或目录的权限 change mod(mod不知道是否为简写)改变文件权限<br><code>$ chmod</code></p>
+<p>改变文件或者目录的所有者  change own改变所有者<br><code>$ chown</code></p>
+<p>成为超级用户<br><code>$ su</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://DoloresHe.github.io/2019/01/31/unix_shell/" data-id="cjrkbxlvq0003nctkq36pqkhz" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-linux" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/01/30/linux/" class="article-date">
@@ -96,18 +148,33 @@
 <p>标准：unix编程标准 接口规范<br>实现：具体的函数接口</p>
 <p>有很多的不同的unix系统，但是unix编程需要统一的标准和实现 可移植性</p>
 <p><strong>awk命令</strong></p>
-<p>编译时限制<br>运行时限制<br>（数，极限数，边界数）</p>
+<p>编译时限制<br>运行时限制<br>（数，极限数，边界数）<br><a href="http://www.cppblog.com/Onway/archive/2012/03/26/169063.html" target="_blank" rel="noopener">http://www.cppblog.com/Onway/archive/2012/03/26/169063.html</a></p>
 <p>选项<br>是否支持某项功能</p>
 <p>功能测试宏<br>定义头文件版本</p>
 <h3 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h3><p>文件io函数</p>
 <hr>
 <p>文件描述符</p>
 <p>int openat(int dirfd, const char *pathname, int flags, mode_t mode);<br>函数openat的第一个参数是目录的文件描述符</p>
+<p>文件偏移量</p>
+<p>有空洞的文件（类似于bug吗）<br>文件空洞不占用任何磁盘空间<br><a href="https://blog.csdn.net/clamercoder/article/details/38361815" target="_blank" rel="noopener">https://blog.csdn.net/clamercoder/article/details/38361815</a></p>
+<p>预读<br>数据结构：B及<em>B+树</em>（普遍运用在<strong>数据库</strong>和<strong>文件系统</strong>。）<br>（vs 红黑树 ）</p>
+<p>B树，B+树，红黑树的比较<br><a href="https://blog.csdn.net/qq_36183935/article/details/81095212" target="_blank" rel="noopener">https://blog.csdn.net/qq_36183935/article/details/81095212</a></p>
+<p>进程表-文件表-v节点</p>
+<p>避免文件操作冲突：原子操作</p>
+<p>buffered and unbuffered</p>
+<p>ext4文件系统（关于文件系统）</p>
+<h3 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h3><p>文件属性</p>
+<hr>
+<p>文件类型：普通文件，目录文件，块特殊文件，字符特殊文件，FIFO，套接字（socket），符号链接</p>
+<p>lstat和stat函数 检测符号链接</p>
+<p>访问权限<br>删除/创建：对所在目录有写和执行权限</p>
+<p>执行权限S <strong>强制位</strong><br><strong>设置使文件在执行阶段具有文件所有者的权限，相当于临时拥有文件所有者的身份</strong></p>
+<p>黏着位<br>使一个目录既能够让任何用户写入文档，又不让用户删除这个目录下他人的文档，t权限就是能起到这个作用。t权限一般只用在目录上，用在文档上起不到什么作用。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://DoloresHe.github.io/2019/01/30/linux/" data-id="cjrjcy31x0001e4tkif9z7xpw" class="article-share-link">Share</a>
+      <a data-url="http://DoloresHe.github.io/2019/01/30/linux/" data-id="cjrkbxlvo0002nctki5wqa9jk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -238,7 +305,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://DoloresHe.github.io/2018/12/21/git/" data-id="cjrjcy30x0000e4tkk9ya8hcq" class="article-share-link">Share</a>
+      <a data-url="http://DoloresHe.github.io/2018/12/21/git/" data-id="cjrkbxlvd0000nctka863rmnn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -588,7 +655,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://DoloresHe.github.io/2018/12/19/vim/" data-id="cjrjcy32r0003e4tkmrkf4uo2" class="article-share-link">Share</a>
+      <a data-url="http://DoloresHe.github.io/2018/12/19/vim/" data-id="cjrkbxlvr0004nctk0jdzzb4u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -633,7 +700,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://DoloresHe.github.io/2018/12/19/hello-world/" data-id="cjrjcy32f0002e4tkp604xj77" class="article-share-link">Share</a>
+      <a data-url="http://DoloresHe.github.io/2018/12/19/hello-world/" data-id="cjrkbxlvm0001nctkk9l7rivb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -672,6 +739,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/01/31/unix_shell/">Unix shell 命令</a>
+          </li>
         
           <li>
             <a href="/2019/01/30/linux/">Unix</a>
